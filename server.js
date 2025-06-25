@@ -6,8 +6,8 @@ const path = require('path');
 const cors = require('cors');
 const multer = require('multer');
 
-const DATA_DIR = process.env.DATA_DIR || path.join(__dirname, 'data');
-const UPLOAD_DIR = process.env.UPLOAD_DIR || path.join(__dirname, 'uploads');
+const DATA_DIR   = process.env.DATA_DIR   || '/data';
+const UPLOAD_DIR = process.env.UPLOAD_DIR || '/uploads';
 const DATA_FILE = path.join(DATA_DIR, 'flowers.json');
 
 // Створюємо папки й файл, якщо немає
