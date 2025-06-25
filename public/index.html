@@ -28,19 +28,19 @@
       <form id="flower-form">
         <label class="form-row">
           Назва
-          <input type="text" id="flower-name" required>
+          <input type="text" id="flower-name" name="name" required>
         </label>
         <label class="form-row">
           Опис
-          <textarea id="flower-desc" rows="2" required></textarea>
+          <textarea id="flower-desc" name="desc" rows="2" required></textarea>
         </label>
         <label class="form-row">
           Ціна (грн)
-          <input type="number" id="flower-price" required>
+          <input type="number" id="flower-price" name="price" required>
         </label>
         <label class="form-row">
           Фото (декілька)
-          <input type="file" id="flower-image-files" accept="image/*" multiple required>
+          <input type="file" id="flower-image-files" name="images" accept="image/*" multiple required>
         </label>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Зберегти</button>
