@@ -1,6 +1,2 @@
 # игнорим только файл с данными, но не папку uploads
-/data/flowers.json
-
-# НЕ игнорим папку uploads и её .gitkeep
-!/data/uploads/
-!/data/uploads/.gitkeep
+data/
