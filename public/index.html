@@ -2,44 +2,52 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Peony Shop</title>
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <div class="container">
+    <div class="container header-content">
       <h1 class="logo">Peony Shop</h1>
       <button id="admin-login-btn" class="btn btn-primary">Адмін</button>
     </div>
   </header>
+
+  <section class="hero">
+    <div class="container">
+      <h2>Найкращі півонії — з любов’ю!</h2>
+      <p>Оберіть свою квітку — ніжну, ароматну, яскраву 🌸</p>
+    </div>
+  </section>
 
   <main class="container">
     <div id="flower-list" class="flower-grid"></div>
     <button id="add-flower-btn" class="btn btn-add admin-only hidden">+ Додати півонію</button>
   </main>
 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Peony Shop. Усі права захищено.</p>
+    </div>
+  </footer>
+
   <!-- Modal Add/Edit -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <h2 id="modal-title">Нова півонія</h2>
       <form id="flower-form">
-        <label class="form-row">
-          Назва
+        <label class="form-row">Назва
           <input type="text" id="flower-name" name="name" required>
         </label>
-        <label class="form-row">
-          Опис
+        <label class="form-row">Опис
           <textarea id="flower-desc" name="desc" rows="2" required></textarea>
         </label>
-        <label class="form-row">
-          Ціна (грн)
+        <label class="form-row">Ціна (грн)
           <input type="number" id="flower-price" name="price" required>
         </label>
-        <label class="form-row">
-          Фото (декілька)
+        <label class="form-row">Фото (декілька)
           <input type="file" id="flower-image-files" name="images" accept="image/*" multiple required>
         </label>
         <div class="form-actions">
