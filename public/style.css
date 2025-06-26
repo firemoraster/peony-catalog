@@ -87,7 +87,6 @@ body {
   z-index: 2;
 }
 
-/* Контейнер для пелюсток */
 .flower-fall {
   position: absolute;
   top: 0;
@@ -102,12 +101,15 @@ body {
   position: absolute;
   width: 24px;
   height: 24px;
-  background-image: url('petal.png'); /* 🔥 перевір правильний шлях */
+  background-image: url('petal.png'); /* 🔥 переконайся в правильності шляху */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.8;
-  animation: fall linear infinite;
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
+
 @keyframes fall {
   0% {
     transform: translateY(-10%) rotate(0deg);
@@ -121,6 +123,7 @@ body {
     opacity: 0;
   }
 }
+
 
 /* Footer */
 .footer {
