@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>pivoniya.flowers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <div class="container header-content">
-      <h1 class="logo">Peony Shop</h1>
-      <button id="admin-login-btn" class="btn btn-primary">Адмін</button>
+      <div class="header-left">
+        <img src="public/logo.jpg" alt="logo" class="logo-img" />
+        <h1 class="logo-text">pivoniya.flowers</h1>
+      </div>
+      <div class="header-right">
+        <a href="https://www.facebook.com/share/16gJhvdhes/?mibextid=wwXIfr" target="_blank">
+          <img src="public/facebook.png" alt="facebook" class="social-icon" />
+        </a>
+        <a href="https://www.tiktok.com/@pivoniya.flowers?_t=ZM-8xWL8hk2Vuy&_r=1" target="_blank">
+          <img src="public/tiktok.jpg" alt="tiktok" class="social-icon" />
+        </a>
+        <button id="admin-login-btn" class="btn btn-admin">Адмін</button>
+      </div>
     </div>
   </header>
 
@@ -23,33 +34,33 @@
   </section>
 
   <main class="container">
-    <input id="search-input" type="text" placeholder="Пошук півонії за назвою..." class="search-input">
+    <input id="search-input" type="text" placeholder="Пошук півонії за назвою..." class="search-input" />
     <div id="flower-list" class="flower-grid"></div>
     <button id="add-flower-btn" class="btn btn-add admin-only hidden">+ Додати півонію</button>
   </main>
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2025 pivoniya.flowes. Усі права захищено.</p>
+      <p>&copy; 2025 pivoniya.flowers. Усі права захищено.</p>
     </div>
   </footer>
 
-  <!-- Modal Add/Edit -->
+  <!-- Модальне вікно додавання -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <h2 id="modal-title">Нова півонія</h2>
       <form id="flower-form">
         <label class="form-row">Назва
-          <input type="text" id="flower-name" name="name" required>
+          <input type="text" id="flower-name" name="name" required />
         </label>
         <label class="form-row">Опис
           <textarea id="flower-desc" name="desc" rows="2" required></textarea>
         </label>
         <label class="form-row">Ціна (грн)
-          <input type="number" id="flower-price" name="price" required>
+          <input type="number" id="flower-price" name="price" required />
         </label>
         <label class="form-row">Фото (декілька)
-          <input type="file" id="flower-image-files" name="images" accept="image/*" multiple required>
+          <input type="file" id="flower-image-files" name="images" accept="image/*" multiple required />
         </label>
         <div class="form-actions">
           <button type="submit" class="btn btn-primary">Зберегти</button>
@@ -59,11 +70,11 @@
     </div>
   </div>
 
-  <!-- Modal Viewer -->
+  <!-- Переглядач фото -->
   <div id="image-viewer" class="modal hidden">
     <button id="viewer-prev" class="viewer-control">◀︎</button>
     <div class="viewer-content">
-      <img id="image-viewer-img" src="" alt="Фото">
+      <img id="image-viewer-img" src="" alt="Фото" />
     </div>
     <button id="viewer-next" class="viewer-control">▶︎</button>
   </div>
