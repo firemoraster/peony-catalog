@@ -35,10 +35,11 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-.logo {
-  font-size: 1.8rem;
-  font-weight: 600;
+.logo-img {
+  height: 70px; /* Збільшити висоту логотипу */
+  object-fit: contain;
 }
+
 .hero {
   text-align: center;
   padding: 2rem 1rem;
