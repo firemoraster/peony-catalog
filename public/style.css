@@ -75,18 +75,51 @@ body {
 
 /* Hero */
 .hero {
+  position: relative;
   text-align: center;
   padding: 2rem 1rem;
   background: linear-gradient(135deg, #f8d7e7, #fff0f6);
   color: var(--primary);
+  overflow: hidden;
 }
-.hero h2 {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+.hero .container {
+  position: relative;
+  z-index: 2;
 }
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
+
+/* Контейнер для пелюсток */
+.flower-fall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.flower-fall .petal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('petal.png'); /* 🔥 перевір правильний шлях */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
 }
 
 /* Footer */
@@ -181,24 +214,23 @@ body {
 /* Карусель */
 .carousel-controls {
   position: absolute;
-  top: 10px; /* ↓ зменш, щоб опустити */
-  left: 0;
-  right: 0;
+  top: 10px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 0.5rem;
-  transform: translateY(10px); /* Додаємо опускання */
   z-index: 2;
 }
-
 .carousel-controls button {
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 0.2rem 0.6rem;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
   cursor: pointer;
-  transition: background var(--transition);
+  transition: background 0.3s;
 }
 .carousel-controls button:hover {
   background: rgba(0, 0, 0, 0.6);
@@ -305,35 +337,6 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
 }
-/* Переміщення стрілок на зображення */
-.flower-card {
-  position: relative;
-}
-
-.carousel-controls {
-  position: absolute;
-  top: 10px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0.5rem;
-  z-index: 2;
-}
-
-.carousel-controls button {
-  background: rgba(0, 0, 0, 0.4);
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-.carousel-controls button:hover {
-  background: rgba(0, 0, 0, 0.6);
-}
 
 /* Опис з розгортанням */
 .card-desc {
@@ -352,77 +355,3 @@ body {
   display: block;
   margin-top: 0.3rem;
 }
-/* Контейнер для анімації */
-.flower-fall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* Одна квіточка */
-.flower-fall .petal {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background-image: url('petal.png'); /* шлях до пелюстки */
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-  animation: fall linear infinite;
-}
-
-/* Анімація падіння */
-@keyframes fall {
-  0% {
-    transform: translateY(-10%) rotate(0deg);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.8;
-  }
-  100% {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 2rem 1rem;
-  background: linear-gradient(135deg, #f8d7e7, #fff0f6);
-  color: var(--primary);
-  overflow: hidden; /* потрібно, щоб приховати зайве */
-}
-
-.hero .container {
-  position: relative; /* ключовий момент! */
-}
-
-.flower-fall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.petal {
-  position: absolute;
-  width: 24px;
-  height: 24px;
-  background-image: url('petal.png'); /* впевнись у шляху! */
-  background-size: contain;
-  background-repeat: no-repeat;
-  opacity: 0.8;
-  animation: fall linear infinite;
-}
-
-
