@@ -146,17 +146,16 @@ searchInput.oninput = e => {
 
 load();
 
-// 🌸 Анімація падаючих квіточок
 window.onload = () => {
-  const flowerSection = document.querySelector('.hero');
+  const flowerSection = document.querySelector('.flower-fall'); // Точно цей клас
   if (!flowerSection) return;
 
   for (let i = 0; i < 20; i++) {
-    const flower = document.createElement('img');
-    flower.src = 'petal.png'; // заміни шлях на свій файл квітки
-    flower.className = 'falling-flower';
+    const flower = document.createElement('div'); // не img, а div
+    flower.className = 'petal';
     flower.style.left = `${Math.random() * 100}%`;
     flower.style.animationDelay = `${Math.random() * 5}s`;
     flowerSection.appendChild(flower);
   }
 };
+
