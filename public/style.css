@@ -260,8 +260,9 @@ body {
   box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
 }
 .logo-img {
-  height: 50px;
-  margin-right: 0.5rem;
+  height: 100px;   /* або навіть 120px якщо хочеш ще більше */
+  object-fit: contain;
+  margin: 0.5rem 0;
 }
 
 .logo-text {
