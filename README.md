@@ -25,7 +25,9 @@ Welcome to **peony-catalog**! This repository is a lightweight flower catalog bu
 
 ## 🎨 Demo
 
-![Screenshot](./public/demo.png)
+![image](https://github.com/user-attachments/assets/03a17ebf-ba41-478c-b860-7be27da3fc1d)
+
+
 
 ---
 
