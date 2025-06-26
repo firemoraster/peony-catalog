@@ -390,4 +390,39 @@ body {
     opacity: 0;
   }
 }
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8d7e7, #fff0f6);
+  color: var(--primary);
+  overflow: hidden; /* потрібно, щоб приховати зайве */
+}
+
+.hero .container {
+  position: relative; /* ключовий момент! */
+}
+
+.flower-fall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.petal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('petal.png'); /* впевнись у шляху! */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
 
