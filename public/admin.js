@@ -153,7 +153,7 @@ window.onload = () => {
 
   for (let i = 0; i < 20; i++) {
     const flower = document.createElement('img');
-    flower.src = '/img/petal.png'; // заміни шлях на свій файл квітки
+    flower.src = 'petal.png'; // заміни шлях на свій файл квітки
     flower.className = 'falling-flower';
     flower.style.left = `${Math.random() * 100}%`;
     flower.style.animationDelay = `${Math.random() * 5}s`;
