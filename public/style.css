@@ -1,153 +1,244 @@
-/* Базова стилізація */
 :root {
   --primary: #d63384;
   --bg: #f8f9fa;
   --card-bg: #ffffff;
   --text: #212529;
-  --radius: 8px;
+  --radius: 12px;
   --transition: 0.3s;
 }
-* { box-sizing: border-box; margin:0; padding:0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
+  line-height: 1.6;
 }
 .container {
-  width: 90%; max-width:1200px; margin: auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
   padding: 1rem 0;
 }
-/* Хедер */
 .header {
   background: var(--card-bg);
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
-.header .container {
-  display: flex; justify-content: space-between; align-items: center;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.logo { font-weight:600; font-size:1.5rem; }
-/* Кнопки */
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+.hero {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f8d7e7, #fff0f6);
+  color: var(--primary);
+}
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+.footer {
+  text-align: center;
+  padding: 1rem;
+  background: #f1f3f5;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+/* Buttons */
 .btn {
-  padding:0.6rem 1.2rem;
-  border:none; border-radius:var(--radius);
-  cursor:pointer; font-weight:600;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 600;
   transition: background var(--transition);
 }
 .btn-primary {
-  background: var(--primary); color:#fff;
+  background: var(--primary);
+  color: #fff;
 }
-.btn-primary:hover { background: #c42e76; }
+.btn-primary:hover {
+  background: #c42e76;
+}
 .btn-secondary {
-  background: #adb5bd; color:#212529;
+  background: #adb5bd;
+  color: #212529;
 }
-.btn-secondary:hover { background: #868e96; }
+.btn-secondary:hover {
+  background: #868e96;
+}
 .btn-add {
-  margin:2rem auto; display:block;
-  background: #20c997; color:#fff;
+  margin: 2rem auto;
+  display: block;
+  background: #20c997;
+  color: #fff;
 }
-.btn-add:hover { background: #1aa179; }
-/* Сітка карток */
+.btn-add:hover {
+  background: #1aa179;
+}
+/* Cards */
 .flower-grid {
-  display:grid;
-  grid-template-columns: repeat(auto-fill,minmax(260px,1fr));
-  gap:1.5rem; margin-top:2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 .flower-card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  overflow:hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform var(--transition);
   position: relative;
 }
-.flower-card:hover { transform: translateY(-5px); }
-/* Зображення */
-.flower-card img {
-  width:100%; height:200px;
-  object-fit: contain;
-  background:#e9ecef;
+.flower-card:hover {
+  transform: translateY(-5px);
 }
-/* Керування слайдом */
+.flower-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background: #e9ecef;
+}
 .carousel-controls {
-  position:absolute; top:50%; left:0; right:0;
-  display:flex; justify-content:space-between;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
   transform: translateY(-50%);
   padding: 0 0.5rem;
 }
 .carousel-controls button {
-  background: rgba(0,0,0,0.4);
-  color:#fff; border:none; border-radius:4px;
-  padding:0.2rem 0.6rem; cursor:pointer;
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
   transition: background var(--transition);
 }
 .carousel-controls button:hover {
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
-/* Контент картки */
 .flower-card .content {
-  padding:1rem;
+  padding: 1rem;
 }
 .flower-card h3 {
-  font-size:1.2rem; margin-bottom:0.5rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 .flower-card p {
-  font-size:0.95rem; margin-bottom:0.5rem;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
 }
 .admin-btns {
-  display:flex; gap:0.5rem; margin-top:0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 .admin-btns button {
-  flex:1; padding:0.4rem; font-size:0.9rem;
+  flex: 1;
+  padding: 0.4rem;
+  font-size: 0.9rem;
 }
-/* Модальні вікна */
+/* Modal */
 .modal {
-  position: fixed; inset:0;
-  background: rgba(0,0,0,0.5);
-  display:flex; justify-content:center; align-items:center;
-  padding:1rem; z-index:100;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  z-index: 100;
 }
-.hidden { display:none; }
+.hidden {
+  display: none;
+}
 .modal-content {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding:1.5rem;
-  width:100%; max-width:400px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
   animation: fadeIn 0.3s ease-out;
 }
 @keyframes fadeIn {
-  from { opacity:0; transform: scale(0.9); }
-  to { opacity:1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 .form-row {
-  margin-bottom:1rem;
-  display:flex; flex-direction:column;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
-.form-row label { font-weight:600; margin-bottom:0.3rem; }
 .form-row input,
 .form-row textarea {
-  padding:0.6rem; border:1px solid #ced4da;
-  border-radius:4px; font-size:0.95rem;
+  padding: 0.6rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 .form-actions {
-  display:flex; justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
 }
-/* Перегляд фото */
+/* Viewer */
 .viewer-content {
-  max-width:90%; max-height:90%;
-  overflow:hidden; border-radius:var(--radius);
+  max-width: 90%;
+  max-height: 90%;
+  overflow: hidden;
+  border-radius: var(--radius);
 }
 #image-viewer-img {
-  max-width:100%; max-height:80vh;
-  cursor: zoom-in; transition: transform var(--transition);
+  max-width: 100%;
+  max-height: 80vh;
+  cursor: zoom-in;
+  transition: transform var(--transition);
 }
 #image-viewer-img.zoomed {
-  transform: scale(2); cursor: zoom-out;
+  transform: scale(2);
+  cursor: zoom-out;
 }
 .viewer-control {
-  position:absolute; top:50%; transform:translateY(-50%);
-  background: rgba(0,0,0,0.4); color:#fff;
-  border:none; border-radius:4px;
-  padding:0.4rem 0.8rem; cursor:pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
 }
-#viewer-prev { left:1rem; }
-#viewer-next { right:1rem; }
+#viewer-prev {
+  left: 1rem;
+}
+#viewer-next {
+  right: 1rem;
+}
