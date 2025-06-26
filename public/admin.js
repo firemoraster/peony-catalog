@@ -146,8 +146,8 @@ searchInput.oninput = e => {
 
 load();
 
-// 🌸 Анімація пелюсток
-window.onload = () => {
+// 🌸 Пелюстки одразу падають
+window.addEventListener('DOMContentLoaded', () => {
   const flowerSection = document.querySelector('.flower-fall');
   if (!flowerSection) return;
 
@@ -156,7 +156,7 @@ window.onload = () => {
     flower.className = 'petal';
     flower.style.left = `${Math.random() * 100}%`;
     flower.style.animationDuration = `${3 + Math.random() * 5}s`;
-    flower.style.animationDelay = `${Math.random() * 5}s`;
+    flower.style.animationDelay = `-${Math.random() * 5}s`; // ключ: від’ємна затримка
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
   }
@@ -170,5 +170,5 @@ window.onload = () => {
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
     setTimeout(() => flower.remove(), 10000);
-  }, 500);
-};
+  }, 700);
+});
