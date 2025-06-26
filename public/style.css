@@ -369,7 +369,7 @@ body {
   position: absolute;
   width: 24px;
   height: 24px;
-  background-image: url('petal.png'); /* шлях до png-іконки */
+  background-image: url('petal.png'); /* шлях до пелюстки */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.8;
@@ -390,3 +390,4 @@ body {
     opacity: 0;
   }
 }
+
