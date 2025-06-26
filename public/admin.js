@@ -49,10 +49,11 @@ function render() {
     });
 
     const cnt = document.createElement('div'); cnt.className = 'content';
+    const descId = `desc-${i}`;
     cnt.innerHTML = `
       <h3>${f.name}</h3>
-      <div class="card-desc">${f.desc}</div>
-      <span class="read-more" onclick="this.previousElementSibling.classList.add('expanded'); this.remove()">Детальніше...</span>
+      <div id="${descId}" class="card-desc">${f.desc}</div>
+      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
       <p><strong>${f.price} грн</strong></p>
     `;
 
@@ -68,6 +69,11 @@ function render() {
   });
 }
 
+window.toggleDesc = function (id, btn) {
+  const el = document.getElementById(id);
+  el.classList.toggle('expanded');
+  btn.textContent = el.classList.contains('expanded') ? 'Згорнути' : 'Детальніше...';
+};
 
 adminBtn.onclick = () => {
   const p = prompt('Пароль:');
