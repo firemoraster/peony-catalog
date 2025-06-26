@@ -9,47 +9,47 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Хедер -->
   <header class="header">
-  <div class="container header-content">
-    <img src="logo.jpg" alt="Логотип pivoniya.flowers" class="logo-img" />
+    <div class="container header-content">
+      <img src="logo.jpg" alt="Логотип pivoniya.flowers" class="logo-img" />
 
-    <div class="header-right">
-      <a href="https://www.facebook.com/share/16gJhvdhes/?mibextid=wwXIfr" target="_blank">
-        <img src="facebook.png" alt="facebook" class="social-icon" />
-      </a>
-      <a href="https://www.tiktok.com/@pivoniya.flowers?_t=ZM-8xWL8hk2Vuy&_r=1" target="_blank">
-        <img src="tiktok.jpg" alt="tiktok" class="social-icon" />
-      </a>
-      <button id="admin-login-btn" class="btn btn-admin">Адмін</button>
+      <div class="header-right">
+        <a href="https://www.facebook.com/share/16gJhvdhes/?mibextid=wwXIfr" target="_blank">
+          <img src="facebook.png" alt="facebook" class="social-icon" />
+        </a>
+        <a href="https://www.tiktok.com/@pivoniya.flowers?_t=ZM-8xWL8hk2Vuy&_r=1" target="_blank">
+          <img src="tiktok.jpg" alt="tiktok" class="social-icon" />
+        </a>
+        <button id="admin-login-btn" class="btn btn-admin">Адмін</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
+  <!-- Герой-секція з анімацією -->
+  <section class="hero">
+    <div class="container">
+      <h2>Найкращі півонії — з любов’ю!</h2>
+      <p>Оберіть свою квітку — ніжну, ароматну, яскраву 🌸</p>
+      <div class="flower-fall"></div>
+    </div>
+  </section>
 
-<section class="hero">
-  <div class="container">
-    <h2>Найкращі півонії — з любов’ю!</h2>
-    <p>Оберіть свою квітку — ніжну, ароматну, яскраву 🌸</p>
-    <div class="flower-fall"></div>
-  </div>
-</section>
-
-
-
-
+  <!-- Основна частина -->
   <main class="container">
     <input id="search-input" type="text" placeholder="Пошук півонії за назвою..." class="search-input" />
     <div id="flower-list" class="flower-grid"></div>
     <button id="add-flower-btn" class="btn btn-add admin-only hidden">+ Додати півонію</button>
   </main>
 
+  <!-- Футер -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2025 pivoniya.flowers. Усі права захищено.</p>
     </div>
   </footer>
 
-  <!-- Модальне вікно додавання -->
+  <!-- Модальне вікно -->
   <div id="modal" class="modal hidden">
     <div class="modal-content">
       <h2 id="modal-title">Нова півонія</h2>
@@ -83,6 +83,7 @@
     <button id="viewer-next" class="viewer-control">▶︎</button>
   </div>
 
+  <!-- JS -->
   <script src="admin.js"></script>
 </body>
 </html>
