@@ -303,3 +303,50 @@ body {
   outline: none;
   box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
 }
+/* Переміщення стрілок на зображення */
+.flower-card {
+  position: relative;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.5rem;
+  z-index: 2;
+}
+
+.carousel-controls button {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.carousel-controls button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Опис з розгортанням */
+.card-desc {
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.4s ease;
+}
+.card-desc.expanded {
+  max-height: 1000px;
+}
+.read-more {
+  color: var(--primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 0.3rem;
+}
