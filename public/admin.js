@@ -41,7 +41,7 @@ function render() {
     ['◀︎','▶︎'].forEach((s, ii) => {
       const b = document.createElement('button'); b.textContent = s;
       b.onclick = (e) => {
-        e.stopPropagation(); // щоб не відкривався переглядач
+        e.stopPropagation();
         ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
         img.src = f.images[ci];
       };
@@ -146,16 +146,29 @@ searchInput.oninput = e => {
 
 load();
 
+// 🌸 Анімація пелюсток
 window.onload = () => {
-  const flowerSection = document.querySelector('.flower-fall'); // Точно цей клас
+  const flowerSection = document.querySelector('.flower-fall');
   if (!flowerSection) return;
 
-  for (let i = 0; i < 20; i++) {
-    const flower = document.createElement('div'); // не img, а div
+  for (let i = 0; i < 30; i++) {
+    const flower = document.createElement('div');
     flower.className = 'petal';
     flower.style.left = `${Math.random() * 100}%`;
+    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
     flower.style.animationDelay = `${Math.random() * 5}s`;
+    flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
   }
-};
 
+  setInterval(() => {
+    const flower = document.createElement('div');
+    flower.className = 'petal';
+    flower.style.left = `${Math.random() * 100}%`;
+    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
+    flower.style.animationDelay = `0s`;
+    flower.style.opacity = Math.random().toFixed(1);
+    flowerSection.appendChild(flower);
+    setTimeout(() => flower.remove(), 10000);
+  }, 500);
+};
