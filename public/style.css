@@ -352,3 +352,41 @@ body {
   display: block;
   margin-top: 0.3rem;
 }
+/* Контейнер для анімації */
+.flower-fall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Одна квіточка */
+.flower-fall .petal {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background-image: url('/images/petal.png'); /* шлях до png-іконки */
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+/* Анімація падіння */
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
