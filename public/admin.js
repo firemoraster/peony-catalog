@@ -32,6 +32,7 @@ function render() {
   filtered.forEach((f, i) => {
     let ci = 0;
     const card = document.createElement('div'); card.className = 'flower-card';
+
     const img = document.createElement('img');
     img.src = f.images[ci]; img.alt = f.name;
     img.onclick = () => openViewer(i, ci);
@@ -39,7 +40,8 @@ function render() {
     const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
     ['◀︎','▶︎'].forEach((s, ii) => {
       const b = document.createElement('button'); b.textContent = s;
-      b.onclick = () => {
+      b.onclick = (e) => {
+        e.stopPropagation(); // щоб не відкривався переглядач
         ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
         img.src = f.images[ci];
       };
@@ -47,16 +49,25 @@ function render() {
     });
 
     const cnt = document.createElement('div'); cnt.className = 'content';
-    cnt.innerHTML = `<h3>${f.name}</h3><p>${f.desc}</p><p><strong>${f.price} грн</strong></p>`;
+    cnt.innerHTML = `
+      <h3>${f.name}</h3>
+      <div class="card-desc">${f.desc}</div>
+      <span class="read-more" onclick="this.previousElementSibling.classList.add('expanded'); this.remove()">Детальніше...</span>
+      <p><strong>${f.price} грн</strong></p>
+    `;
+
     if (isAdmin) {
       const ab = document.createElement('div'); ab.className = 'admin-btns';
       const eB = document.createElement('button'); eB.textContent = '✏️'; eB.onclick = () => startEdit(f);
       const dB = document.createElement('button'); dB.textContent = '🗑️'; dB.onclick = () => remove(f.id);
       ab.append(eB, dB); cnt.append(ab);
     }
-    card.append(img, ctr, cnt); list.append(card);
+
+    card.append(img, ctr, cnt);
+    list.append(card);
   });
 }
+
 
 adminBtn.onclick = () => {
   const p = prompt('Пароль:');
