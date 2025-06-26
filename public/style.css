@@ -181,14 +181,16 @@ body {
 /* Карусель */
 .carousel-controls {
   position: absolute;
-  top: 50%;
+  top: 10px; /* ↓ зменш, щоб опустити */
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  transform: translateY(-50%);
   padding: 0 0.5rem;
+  transform: translateY(10px); /* Додаємо опускання */
+  z-index: 2;
 }
+
 .carousel-controls button {
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
