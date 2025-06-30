@@ -1,6 +1,7 @@
 const API = '/api/flowers';
 
-let flowers = [], isAdmin = false, editId = null, files = [], vf = 0, vi = 0, searchText = '';
+let flowers = [], isAdmin = false, editId = null, files = [], vf = 0, vi = 0;
+let searchText = '', sortOption = '';
 
 // DOM
 const list = document.getElementById('flower-list'),
@@ -14,7 +15,8 @@ const list = document.getElementById('flower-list'),
       vImg      = document.getElementById('image-viewer-img'),
       prevBtn   = document.getElementById('viewer-prev'),
       nextBtn   = document.getElementById('viewer-next'),
-      searchInput = document.getElementById('search-input');
+      searchInput = document.getElementById('search-input'),
+      sortSelect = document.getElementById('sort-select');
 
 const show = (e) => e.classList.remove('hidden'),
       hide = (e) => e.classList.add('hidden');
@@ -27,7 +29,15 @@ async function load() {
 
 function render() {
   list.innerHTML = '';
-  const filtered = flowers.filter(f => f.name.toLowerCase().includes(searchText.toLowerCase()));
+  let filtered = flowers.filter(f => f.name.toLowerCase().includes(searchText.toLowerCase()));
+
+  // 🔽 Сортування
+  switch (sortOption) {
+    case 'name-asc': filtered.sort((a, b) => a.name.localeCompare(b.name)); break;
+    case 'name-desc': filtered.sort((a, b) => b.name.localeCompare(a.name)); break;
+    case 'price-asc': filtered.sort((a, b) => a.price - b.price); break;
+    case 'price-desc': filtered.sort((a, b) => b.price - a.price); break;
+  }
 
   filtered.forEach((f, i) => {
     let ci = 0;
@@ -144,7 +154,11 @@ searchInput.oninput = e => {
   render();
 };
 
-load();
+// ⬇️ Сортування
+sortSelect.onchange = e => {
+  sortOption = e.target.value;
+  render();
+};
 
 // 🌸 Пелюстки одразу падають
 window.addEventListener('DOMContentLoaded', () => {
@@ -156,7 +170,7 @@ window.addEventListener('DOMContentLoaded', () => {
     flower.className = 'petal';
     flower.style.left = `${Math.random() * 100}%`;
     flower.style.animationDuration = `${3 + Math.random() * 5}s`;
-    flower.style.animationDelay = `-${Math.random() * 5}s`; // ключ: від’ємна затримка
+    flower.style.animationDelay = `-${Math.random() * 5}s`; // одразу падають
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
   }
