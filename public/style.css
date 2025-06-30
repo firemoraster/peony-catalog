@@ -454,3 +454,35 @@ body {
   }
 }
 
+.contact-phone {
+  font-size: 0.95rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  background: #fff0f6;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(214, 51, 132, 0.15);
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.contact-phone:hover {
+  background: #ffe2ef;
+}
+
+.contact-phone a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.phone-icon {
+  margin-right: 6px;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+
