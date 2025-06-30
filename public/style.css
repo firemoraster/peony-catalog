@@ -379,3 +379,15 @@ body {
   display: block;
   margin-top: 0.3rem;
 }
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter-bar .search-input {
+  flex: 1 1 300px;
+  max-width: 48%;
+}
