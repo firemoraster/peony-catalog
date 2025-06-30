@@ -13,7 +13,6 @@
   <header class="header">
     <div class="container header-content">
       <img src="logo.jpg" alt="Логотип pivoniya.flowers" class="logo-img" />
-
       <div class="header-right">
         <a href="https://www.facebook.com/share/16gJhvdhes/?mibextid=wwXIfr" target="_blank">
           <img src="facebook.png" alt="facebook" class="social-icon" />
@@ -37,15 +36,15 @@
 
   <!-- Основна частина -->
   <main class="container">
-   <div class="filter-bar">
-  <input id="search-input" type="text" placeholder="Пошук півонії за назвою..." class="search-input" />
-  <select id="sort-select" class="search-input">
-    <option value="name-asc">Назва (A-Z)</option>
-    <option value="name-desc">Назва (Z-А)</option>
-    <option value="price-asc">Від дешевих до дорогих</option>
-    <option value="price-desc">Від дорогих до дешевих</option>
-  </select>
-</div>
+    <div class="filter-bar-row">
+      <input id="search-input" type="text" placeholder="Пошук півонії за назвою..." class="search-input" />
+      <select id="sort-select">
+        <option value="name-asc">Назва (A-Z)</option>
+        <option value="name-desc">Назва (Z-А)</option>
+        <option value="price-asc">Від дешевих до дорогих</option>
+        <option value="price-desc">Від дорогих до дешевих</option>
+      </select>
+    </div>
 
     <div id="flower-list" class="flower-grid"></div>
     <button id="add-flower-btn" class="btn btn-add admin-only hidden">+ Додати півонію</button>
