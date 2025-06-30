@@ -379,24 +379,46 @@ body {
   display: block;
   margin-top: 0.3rem;
 }
-.filter-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.filter-bar .search-input {
+/* Єдине вирівнювання і стиль для пошуку та сортування */
+.filter-bar input,
+.filter-bar select {
   height: 48px;
   padding: 10px 16px;
   font-size: 16px;
   border-radius: 10px;
   border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
   flex: 1 1 300px;
   max-width: 400px;
   min-width: 240px;
   box-sizing: border-box;
 }
 
+/* Видаляємо margin, який ламає вирівнювання */
+.search-input {
+  margin: 0 !important;
+}
+
+/* Оновлений стиль сортування всередині .filter-bar */
+#sort-select {
+  all: unset;
+  height: 48px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
+  flex: 1 1 300px;
+  max-width: 400px;
+  min-width: 240px;
+  box-sizing: border-box;
+  background-color: white;
+  appearance: none;
+}
+
+#sort-select:focus {
+  outline: none;
+  border-color: #e75480;
+}
