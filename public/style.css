@@ -6,17 +6,20 @@
   --radius: 12px;
   --transition: 0.3s;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
 }
+
 .container {
   width: 90%;
   max-width: 1200px;
@@ -30,26 +33,31 @@ body {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   padding: 0.5rem 0;
 }
+
 .header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .header-left {
   display: flex;
   align-items: center;
 }
+
 .header-right {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
+
 .logo-img {
   height: 110px;
   max-height: 120px;
   object-fit: contain;
   margin: 0.5rem 0;
 }
+
 .social-icon {
   height: 34px;
   width: 34px;
@@ -57,9 +65,11 @@ body {
   border-radius: 6px;
   transition: opacity 0.3s;
 }
+
 .social-icon:hover {
   opacity: 0.8;
 }
+
 .btn-admin {
   background: #eee;
   color: #666;
@@ -69,6 +79,7 @@ body {
   opacity: 0.6;
   transition: opacity 0.3s;
 }
+
 .btn-admin:hover {
   opacity: 1;
 }
@@ -82,6 +93,7 @@ body {
   color: var(--primary);
   overflow: hidden;
 }
+
 .hero .container {
   position: relative;
   z-index: 2;
@@ -97,11 +109,12 @@ body {
   overflow: hidden;
   z-index: 1;
 }
+
 .flower-fall .petal {
   position: absolute;
   width: 24px;
   height: 24px;
-  background-image: url('petal.png'); /* 🔥 переконайся в правильності шляху */
+  background-image: url('petal.png'); /* 🔥 перевір правильний шлях */
   background-size: contain;
   background-repeat: no-repeat;
   opacity: 0.8;
@@ -124,7 +137,6 @@ body {
   }
 }
 
-
 /* Footer */
 .footer {
   text-align: center;
@@ -144,26 +156,32 @@ body {
   font-weight: 600;
   transition: background var(--transition);
 }
+
 .btn-primary {
   background: var(--primary);
   color: #fff;
 }
+
 .btn-primary:hover {
   background: #c42e76;
 }
+
 .btn-secondary {
   background: #adb5bd;
   color: #212529;
 }
+
 .btn-secondary:hover {
   background: #868e96;
 }
+
 .btn-add {
   margin: 2rem auto;
   display: block;
   background: #20c997;
   color: #fff;
 }
+
 .btn-add:hover {
   background: #1aa179;
 }
@@ -175,6 +193,7 @@ body {
   gap: 1.5rem;
   margin-top: 2rem;
 }
+
 .flower-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -183,31 +202,38 @@ body {
   transition: transform var(--transition);
   position: relative;
 }
+
 .flower-card:hover {
   transform: translateY(-5px);
 }
+
 .flower-card img {
   width: 100%;
   height: 200px;
   object-fit: contain;
   background: #e9ecef;
 }
+
 .flower-card .content {
   padding: 1rem;
 }
+
 .flower-card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
 }
+
 .flower-card p {
   font-size: 0.95rem;
   margin-bottom: 0.5rem;
 }
+
 .admin-btns {
   display: flex;
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
+
 .admin-btns button {
   flex: 1;
   padding: 0.4rem;
@@ -224,6 +250,7 @@ body {
   padding: 0 0.5rem;
   z-index: 2;
 }
+
 .carousel-controls button {
   background: rgba(0, 0, 0, 0.4);
   color: #fff;
@@ -235,6 +262,7 @@ body {
   cursor: pointer;
   transition: background 0.3s;
 }
+
 .carousel-controls button:hover {
   background: rgba(0, 0, 0, 0.6);
 }
@@ -250,9 +278,11 @@ body {
   padding: 1rem;
   z-index: 100;
 }
+
 .hidden {
   display: none;
 }
+
 .modal-content {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -261,6 +291,7 @@ body {
   max-width: 400px;
   animation: fadeIn 0.3s ease-out;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -271,11 +302,13 @@ body {
     transform: scale(1);
   }
 }
+
 .form-row {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
 }
+
 .form-row input,
 .form-row textarea {
   padding: 0.6rem;
@@ -283,6 +316,7 @@ body {
   border-radius: 4px;
   font-size: 0.95rem;
 }
+
 .form-actions {
   display: flex;
   justify-content: space-between;
@@ -295,16 +329,19 @@ body {
   overflow: hidden;
   border-radius: var(--radius);
 }
+
 #image-viewer-img {
   max-width: 100%;
   max-height: 80vh;
   cursor: zoom-in;
   transition: transform var(--transition);
 }
+
 #image-viewer-img.zoomed {
   transform: scale(2);
   cursor: zoom-out;
 }
+
 .viewer-control {
   position: absolute;
   top: 50%;
@@ -316,18 +353,19 @@ body {
   padding: 0.4rem 0.8rem;
   cursor: pointer;
 }
+
 #viewer-prev {
   left: 1rem;
 }
+
 #viewer-next {
   right: 1rem;
 }
 
-/* Search */
+/* Пошук */
 .search-input {
   width: 100%;
   max-width: 400px;
-  margin: 2rem auto 0 auto;
   display: block;
   padding: 0.7rem 1rem;
   font-size: 1rem;
@@ -335,72 +373,10 @@ body {
   border: 1px solid #ced4da;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   transition: box-shadow var(--transition);
-}
-.search-input:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(214, 51, 132, 0.2);
-}
-
-/* Сортування*/
-#sort-select {
-  padding: 10px 14px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  display: block;
-  width: 100%;
-  max-width: 400px;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  transition: border-color 0.3s ease;
-}
-
-#sort-select:focus {
-  border-color: #e75480;
-  outline: none;
-}
-
-
-/* Опис з розгортанням */
-.card-desc {
-  max-height: 100px;
-  overflow: hidden;
-  position: relative;
-  transition: max-height 0.4s ease;
-}
-.card-desc.expanded {
-  max-height: 1000px;
-}
-.read-more {
-  color: var(--primary);
-  font-size: 0.9rem;
-  cursor: pointer;
-  display: block;
-  margin-top: 0.3rem;
-}
-/* Єдине вирівнювання і стиль для пошуку та сортування */
-.filter-bar input,
-.filter-bar select {
-  height: 48px;
-  padding: 10px 16px;
-  font-size: 16px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-  font-family: 'Poppins', sans-serif;
-  flex: 1 1 300px;
-  max-width: 400px;
-  min-width: 240px;
-  box-sizing: border-box;
-}
-
-/* Видаляємо margin, який ламає вирівнювання */
-.search-input {
   margin: 0 !important;
 }
 
-/* Оновлений стиль сортування всередині .filter-bar */
+/* Сортування */
 #sort-select {
   all: unset;
   height: 48px;
@@ -421,4 +397,49 @@ body {
 #sort-select:focus {
   outline: none;
   border-color: #e75480;
+}
+
+/* Розгортання опису */
+.card-desc {
+  max-height: 100px;
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.4s ease;
+}
+
+.card-desc.expanded {
+  max-height: 1000px;
+}
+
+.read-more {
+  color: var(--primary);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* Бар фільтрів */
+.filter-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.filter-bar input,
+.filter-bar select {
+  height: 48px;
+  padding: 10px 16px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  font-family: 'Poppins', sans-serif;
+  flex: 1 1 300px;
+  max-width: 400px;
+  min-width: 240px;
+  box-sizing: border-box;
 }
