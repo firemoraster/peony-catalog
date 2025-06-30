@@ -1,7 +1,7 @@
 const API = '/api/flowers';
 
 let flowers = [], isAdmin = false, editId = null, files = [], vf = 0, vi = 0;
-let searchText = '', sortOption = '';
+let searchText = '', sortOption = 'name-asc'; // ✅ початкове значення сортування
 
 // DOM
 const list = document.getElementById('flower-list'),
