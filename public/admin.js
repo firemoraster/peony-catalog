@@ -51,7 +51,6 @@ function render() {
         e.stopPropagation();
         ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
         img.src = f.images[ci];
-      
       };
       ctr.append(b);
     });
@@ -59,12 +58,11 @@ function render() {
     const cnt = document.createElement('div'); cnt.className = 'content';
     const descId = `desc-${i}`;
     cnt.innerHTML = `
-        <h3>${f.name}</h3>
-        <div id="${descId}" class="card-desc">${f.desc}</div>
-        <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
-        <p><strong>${f.price} грн</strong></p>
-   `;
-   
+      <h3>${f.name}</h3>
+      <div id="${descId}" class="card-desc">${f.desc}</div>
+      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
+      <p><strong>${f.price} грн</strong></p>
+    `;
 
     if (isAdmin) {
       const ab = document.createElement('div'); ab.className = 'admin-btns';
@@ -166,9 +164,9 @@ window.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < 30; i++) {
     const flower = document.createElement('div');
     flower.className = 'petal';
-    flower.style.left = ${Math.random() * 100}%;
-    flower.style.animationDuration = ${3 + Math.random() * 5}s;
-    flower.style.animationDelay = -${Math.random() * 5}s;
+    flower.style.left = `${Math.random() * 100}%`;
+    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
+    flower.style.animationDelay = `-${Math.random() * 5}s`;
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
   }
@@ -176,9 +174,9 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     const flower = document.createElement('div');
     flower.className = 'petal';
-    flower.style.left = ${Math.random() * 100}%;
-    flower.style.animationDuration = ${3 + Math.random() * 5}s;
-    flower.style.animationDelay = 0s;
+    flower.style.left = `${Math.random() * 100}%`;
+    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
+    flower.style.animationDelay = `0s`;
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
     setTimeout(() => flower.remove(), 10000);
