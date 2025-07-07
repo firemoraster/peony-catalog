@@ -51,7 +51,7 @@ function render() {
         e.stopPropagation();
         ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
         img.src = f.images[ci];
-       updateImage();
+      
       };
       ctr.append(b);
     });
