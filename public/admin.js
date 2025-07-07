@@ -1,7 +1,6 @@
 const API = '/api/flowers';
 let flowers = [], isAdmin = false, editId = null, files = [], vi = 0, searchText = '', sortOption = 'name-asc';
-
-let currentImages = []; // 🔥 зберігає фото для відкритої квітки
+let currentImages = []; // активна галерея
 
 // DOM
 const list = document.getElementById('flower-list'),
@@ -47,7 +46,7 @@ function render() {
     img.src = f.images[currentIndex]; 
     img.alt = f.name;
     img.loading = 'lazy';
-    img.onclick = () => openViewer(f, currentIndex); // ✅ передаємо об'єкт
+    img.onclick = () => openViewer(f, currentIndex); // ✅ правильне відкриття
 
     const ctr = document.createElement('div'); 
     ctr.className = 'carousel-controls';
@@ -143,7 +142,7 @@ async function remove(id) {
   }
 }
 
-// 🔥 Виправлений переглядач
+// Галерея
 function openViewer(flower, imageIndex = 0) {
   currentImages = flower.images;
   vi = imageIndex;
@@ -155,7 +154,6 @@ function updateViewer() {
   vImg.src = currentImages[vi];
   vImg.classList.remove('zoomed');
 }
-
 prevBtn.onclick = () => {
   vi = (vi - 1 + currentImages.length) % currentImages.length;
   updateViewer();
@@ -167,7 +165,7 @@ nextBtn.onclick = () => {
 vImg.ondblclick = () => vImg.classList.toggle('zoomed');
 viewer.onclick = e => { if (e.target === viewer) hide(viewer); };
 
-// Фільтр і сортування
+// Пошук і сортування
 searchInput.oninput = e => {
   searchText = e.target.value;
   render();
@@ -177,7 +175,6 @@ sortSelect.onchange = e => {
   render();
 };
 
-// Завантаження
 load();
 
 // Анімація пелюсток
