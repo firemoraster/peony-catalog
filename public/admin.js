@@ -57,13 +57,14 @@ function render() {
     });
 
     const cnt = document.createElement('div'); cnt.className = 'content';
-    const descId = desc-${i};
-    cnt.innerHTML = 
-      <h3>${f.name}</h3>
-      <div id="${descId}" class="card-desc">${f.desc}</div>
-      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
-      <p><strong>${f.price} грн</strong></p>
-    ;
+    const descId = `desc-${i}`;
+    cnt.innerHTML = `
+        <h3>${f.name}</h3>
+        <div id="${descId}" class="card-desc">${f.desc}</div>
+        <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
+        <p><strong>${f.price} грн</strong></p>
+   `;
+   
 
     if (isAdmin) {
       const ab = document.createElement('div'); ab.className = 'admin-btns';
@@ -106,7 +107,7 @@ form.onsubmit = async e => {
   e.preventDefault();
   const fd = new FormData(form);
   files.forEach(f => fd.append('images', f));
-  if (editId) await fetch(${API}/${editId}, { method: 'PUT', body: fd });
+  if (editId) await fetch(`${API}/${editId}`, { method: 'PUT', body: fd });
   else await fetch(API, { method: 'POST', body: fd });
   hide(modal); load();
 };
