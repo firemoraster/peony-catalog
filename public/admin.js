@@ -38,25 +38,66 @@ function render() {
 
   filtered.forEach((f, i) => {
     let ci = 0;
-const img = document.createElement('img');
 
-function updateImage() {
-  img.src = f.images[ci];
-  img.onclick = () => openViewer(i, ci); // <- оновлюємо в залежності від поточного ci
+    const card = document.createElement('div');
+    card.className = 'flower-card';
+
+    const img = document.createElement('img');
+
+    function updateImage() {
+      img.src = f.images[ci];
+      img.alt = f.name;
+      img.onclick = () => openViewer(i, ci);  // оновлюємо актуальний індекс
+    }
+
+    updateImage();
+
+    const ctr = document.createElement('div');
+    ctr.className = 'carousel-controls';
+
+    ['◀︎', '▶︎'].forEach((symbol, ii) => {
+      const b = document.createElement('button');
+      b.textContent = symbol;
+      b.onclick = (e) => {
+        e.stopPropagation();
+        ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
+        updateImage();
+      };
+      ctr.append(b);
+    });
+
+    const cnt = document.createElement('div');
+    cnt.className = 'content';
+    const descId = `desc-${i}`;
+
+    cnt.innerHTML = `
+      <h3>${f.name}</h3>
+      <div id="${descId}" class="card-desc">${f.desc}</div>
+      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
+      <p><strong>${f.price} грн</strong></p>
+    `;
+
+    if (isAdmin) {
+      const ab = document.createElement('div');
+      ab.className = 'admin-btns';
+
+      const eB = document.createElement('button');
+      eB.textContent = '✏️';
+      eB.onclick = () => startEdit(f);
+
+      const dB = document.createElement('button');
+      dB.textContent = '🗑️';
+      dB.onclick = () => remove(f.id);
+
+      ab.append(eB, dB);
+      cnt.append(ab);
+    }
+
+    card.append(img, ctr, cnt);
+    list.append(card);
+  });
 }
 
-updateImage();
-
-const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
-['◀︎','▶︎'].forEach((s, ii) => {
-  const b = document.createElement('button'); b.textContent = s;
-  b.onclick = (e) => {
-    e.stopPropagation();
-    ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
-    updateImage(); // <- оновлюємо img.src та його onclick
-  };
-  ctr.append(b);
-});
 
 
     const cnt = document.createElement('div'); cnt.className = 'content';
