@@ -45,7 +45,6 @@ function render() {
     const img = document.createElement('img');
     img.src = f.images[currentIndex]; 
     img.alt = f.name;
-    img.loading = 'lazy';
     img.onclick = () => openViewer(f, currentIndex); // ✅ правильне відкриття
 
     const ctr = document.createElement('div'); 
