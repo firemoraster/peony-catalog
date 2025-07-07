@@ -1,5 +1,7 @@
 const API = '/api/flowers';
-let flowers = [], isAdmin = false, editId = null, files = [], vf = 0, vi = 0, searchText = '', sortOption = 'name-asc';
+let flowers = [], isAdmin = false, editId = null, files = [], vi = 0, searchText = '', sortOption = 'name-asc';
+
+let currentImages = []; // 🔥 зберігає фото для відкритої квітки
 
 // DOM
 const list = document.getElementById('flower-list'),
@@ -24,6 +26,7 @@ async function load() {
   flowers = await res.json();
   render();
 }
+
 function render() {
   list.innerHTML = '';
   let filtered = flowers.filter(f => f.name.toLowerCase().includes(searchText.toLowerCase()));
@@ -43,7 +46,7 @@ function render() {
     const img = document.createElement('img');
     img.src = f.images[currentIndex]; 
     img.alt = f.name;
-    img.onclick = () => openViewer(i, currentIndex);
+    img.onclick = () => openViewer(f, currentIndex); // ✅ передаємо об'єкт
 
     const ctr = document.createElement('div'); 
     ctr.className = 'carousel-controls';
@@ -86,13 +89,14 @@ function render() {
   });
 }
 
-
+// Розгортання опису
 window.toggleDesc = function (id, btn) {
   const el = document.getElementById(id);
   el.classList.toggle('expanded');
   btn.textContent = el.classList.contains('expanded') ? 'Згорнути' : 'Детальніше...';
 };
 
+// Адмін-режим
 adminBtn.onclick = () => {
   const p = prompt('Пароль:');
   if (p === 'admin123') {
@@ -138,24 +142,31 @@ async function remove(id) {
   }
 }
 
-function openViewer(fi, ii = 0) {
-  vf = fi; vi = ii; updateViewer(); show(viewer);
+// 🔥 Виправлений переглядач
+function openViewer(flower, imageIndex = 0) {
+  currentImages = flower.images;
+  vi = imageIndex;
+  updateViewer();
+  show(viewer);
 }
+
 function updateViewer() {
-  vImg.src = flowers[vf].images[vi];
+  vImg.src = currentImages[vi];
   vImg.classList.remove('zoomed');
 }
+
 prevBtn.onclick = () => {
-  vi = (vi - 1 + flowers[vf].images.length) % flowers[vf].images.length;
+  vi = (vi - 1 + currentImages.length) % currentImages.length;
   updateViewer();
 };
 nextBtn.onclick = () => {
-  vi = (vi + 1) % flowers[vf].images.length;
+  vi = (vi + 1) % currentImages.length;
   updateViewer();
 };
 vImg.ondblclick = () => vImg.classList.toggle('zoomed');
 viewer.onclick = e => { if (e.target === viewer) hide(viewer); };
 
+// Фільтр і сортування
 searchInput.oninput = e => {
   searchText = e.target.value;
   render();
@@ -165,6 +176,7 @@ sortSelect.onchange = e => {
   render();
 };
 
+// Завантаження
 load();
 
 // Анімація пелюсток
