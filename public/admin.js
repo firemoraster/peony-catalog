@@ -38,22 +38,26 @@ function render() {
 
   filtered.forEach((f, i) => {
     let ci = 0;
-    const card = document.createElement('div'); card.className = 'flower-card';
+const img = document.createElement('img');
 
-    const img = document.createElement('img');
-    img.src = f.images[ci]; img.alt = f.name;
-    img.onclick = () => openViewer(i, ci);
+function updateImage() {
+  img.src = f.images[ci];
+  img.onclick = () => openViewer(i, ci); // <- оновлюємо в залежності від поточного ci
+}
 
-    const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
-    ['◀︎','▶︎'].forEach((s, ii) => {
-      const b = document.createElement('button'); b.textContent = s;
-      b.onclick = (e) => {
-        e.stopPropagation();
-        ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
-        img.src = f.images[ci];
-      };
-      ctr.append(b);
-    });
+updateImage();
+
+const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
+['◀︎','▶︎'].forEach((s, ii) => {
+  const b = document.createElement('button'); b.textContent = s;
+  b.onclick = (e) => {
+    e.stopPropagation();
+    ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
+    updateImage(); // <- оновлюємо img.src та його onclick
+  };
+  ctr.append(b);
+});
+
 
     const cnt = document.createElement('div'); cnt.className = 'content';
     const descId = `desc-${i}`;
