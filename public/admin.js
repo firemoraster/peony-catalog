@@ -124,7 +124,7 @@ function startEdit(f) {
 
 async function remove(id) {
   if (confirm('Видалити?')) {
-    await fetch(${API}/${id}, { method: 'DELETE' });
+    await fetch(`${API}/${id}`, { method: 'DELETE' });
     load();
   }
 }
