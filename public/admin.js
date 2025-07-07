@@ -24,7 +24,6 @@ async function load() {
   flowers = await res.json();
   render();
 }
-
 function render() {
   list.innerHTML = '';
   let filtered = flowers.filter(f => f.name.toLowerCase().includes(searchText.toLowerCase()));
@@ -37,44 +36,56 @@ function render() {
   }
 
   filtered.forEach((f, i) => {
-    let ci = 0;
-    const card = document.createElement('div'); card.className = 'flower-card';
+    let currentIndex = 0;
+    const card = document.createElement('div'); 
+    card.className = 'flower-card';
 
     const img = document.createElement('img');
-    img.src = f.images[ci]; img.alt = f.name;
-    img.onclick = () => openViewer(i, ci);
+    img.src = f.images[currentIndex]; 
+    img.alt = f.name;
+    img.onclick = () => openViewer(i, currentIndex);
 
-    const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
+    const ctr = document.createElement('div'); 
+    ctr.className = 'carousel-controls';
     ['◀︎','▶︎'].forEach((s, ii) => {
-      const b = document.createElement('button'); b.textContent = s;
+      const b = document.createElement('button'); 
+      b.textContent = s;
       b.onclick = (e) => {
         e.stopPropagation();
-        ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
-        img.src = f.images[ci];
+        currentIndex = (currentIndex + (ii ? 1 : -1) + f.images.length) % f.images.length;
+        img.src = f.images[currentIndex];
       };
       ctr.append(b);
     });
 
-    const cnt = document.createElement('div'); cnt.className = 'content';
+    const cnt = document.createElement('div'); 
+    cnt.className = 'content';
     const descId = `desc-${i}`;
     cnt.innerHTML = `
-      <h3>${f.name}</h3>
-      <div id="${descId}" class="card-desc">${f.desc}</div>
-      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
-      <p><strong>${f.price} грн</strong></p>
+        <h3>${f.name}</h3>
+        <div id="${descId}" class="card-desc">${f.desc}</div>
+        <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
+        <p><strong>${f.price} грн</strong></p>
     `;
 
     if (isAdmin) {
-      const ab = document.createElement('div'); ab.className = 'admin-btns';
-      const eB = document.createElement('button'); eB.textContent = '✏️'; eB.onclick = () => startEdit(f);
-      const dB = document.createElement('button'); dB.textContent = '🗑️'; dB.onclick = () => remove(f.id);
-      ab.append(eB, dB); cnt.append(ab);
+      const ab = document.createElement('div'); 
+      ab.className = 'admin-btns';
+      const eB = document.createElement('button'); 
+      eB.textContent = '✏️'; 
+      eB.onclick = () => startEdit(f);
+      const dB = document.createElement('button'); 
+      dB.textContent = '🗑️'; 
+      dB.onclick = () => remove(f.id);
+      ab.append(eB, dB); 
+      cnt.append(ab);
     }
 
     card.append(img, ctr, cnt);
     list.append(card);
   });
 }
+
 
 window.toggleDesc = function (id, btn) {
   const el = document.getElementById(id);
