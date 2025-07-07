@@ -38,76 +38,31 @@ function render() {
 
   filtered.forEach((f, i) => {
     let ci = 0;
-
-    const card = document.createElement('div');
-    card.className = 'flower-card';
+    const card = document.createElement('div'); card.className = 'flower-card';
 
     const img = document.createElement('img');
+    img.src = f.images[ci]; img.alt = f.name;
+    img.onclick = () => openViewer(i, ci);
 
-    function updateImage() {
-      img.src = f.images[ci];
-      img.alt = f.name;
-      img.onclick = () => openViewer(i, ci);  // оновлюємо актуальний індекс
-    }
-
-    updateImage();
-
-    const ctr = document.createElement('div');
-    ctr.className = 'carousel-controls';
-
-    ['◀︎', '▶︎'].forEach((symbol, ii) => {
-      const b = document.createElement('button');
-      b.textContent = symbol;
+    const ctr = document.createElement('div'); ctr.className = 'carousel-controls';
+    ['◀︎','▶︎'].forEach((s, ii) => {
+      const b = document.createElement('button'); b.textContent = s;
       b.onclick = (e) => {
         e.stopPropagation();
         ci = (ci + (ii ? 1 : -1) + f.images.length) % f.images.length;
-        updateImage();
+        img.src = f.images[ci];
       };
       ctr.append(b);
     });
 
-    const cnt = document.createElement('div');
-    cnt.className = 'content';
-    const descId = `desc-${i}`;
-
-    cnt.innerHTML = `
-      <h3>${f.name}</h3>
-      <div id="${descId}" class="card-desc">${f.desc}</div>
-      <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
-      <p><strong>${f.price} грн</strong></p>
-    `;
-
-    if (isAdmin) {
-      const ab = document.createElement('div');
-      ab.className = 'admin-btns';
-
-      const eB = document.createElement('button');
-      eB.textContent = '✏️';
-      eB.onclick = () => startEdit(f);
-
-      const dB = document.createElement('button');
-      dB.textContent = '🗑️';
-      dB.onclick = () => remove(f.id);
-
-      ab.append(eB, dB);
-      cnt.append(ab);
-    }
-
-    card.append(img, ctr, cnt);
-    list.append(card);
-  });
-}
-
-
-
     const cnt = document.createElement('div'); cnt.className = 'content';
-    const descId = `desc-${i}`;
-    cnt.innerHTML = `
+    const descId = desc-${i};
+    cnt.innerHTML = 
       <h3>${f.name}</h3>
       <div id="${descId}" class="card-desc">${f.desc}</div>
       <span class="read-more" onclick="toggleDesc('${descId}', this)">Детальніше...</span>
       <p><strong>${f.price} грн</strong></p>
-    `;
+    ;
 
     if (isAdmin) {
       const ab = document.createElement('div'); ab.className = 'admin-btns';
@@ -150,7 +105,7 @@ form.onsubmit = async e => {
   e.preventDefault();
   const fd = new FormData(form);
   files.forEach(f => fd.append('images', f));
-  if (editId) await fetch(`${API}/${editId}`, { method: 'PUT', body: fd });
+  if (editId) await fetch(${API}/${editId}, { method: 'PUT', body: fd });
   else await fetch(API, { method: 'POST', body: fd });
   hide(modal); load();
 };
@@ -167,7 +122,7 @@ function startEdit(f) {
 
 async function remove(id) {
   if (confirm('Видалити?')) {
-    await fetch(`${API}/${id}`, { method: 'DELETE' });
+    await fetch(${API}/${id}, { method: 'DELETE' });
     load();
   }
 }
@@ -209,9 +164,9 @@ window.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < 30; i++) {
     const flower = document.createElement('div');
     flower.className = 'petal';
-    flower.style.left = `${Math.random() * 100}%`;
-    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
-    flower.style.animationDelay = `-${Math.random() * 5}s`;
+    flower.style.left = ${Math.random() * 100}%;
+    flower.style.animationDuration = ${3 + Math.random() * 5}s;
+    flower.style.animationDelay = -${Math.random() * 5}s;
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
   }
@@ -219,9 +174,9 @@ window.addEventListener('DOMContentLoaded', () => {
   setInterval(() => {
     const flower = document.createElement('div');
     flower.className = 'petal';
-    flower.style.left = `${Math.random() * 100}%`;
-    flower.style.animationDuration = `${3 + Math.random() * 5}s`;
-    flower.style.animationDelay = `0s`;
+    flower.style.left = ${Math.random() * 100}%;
+    flower.style.animationDuration = ${3 + Math.random() * 5}s;
+    flower.style.animationDelay = 0s;
     flower.style.opacity = Math.random().toFixed(1);
     flowerSection.appendChild(flower);
     setTimeout(() => flower.remove(), 10000);
